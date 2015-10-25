@@ -45,7 +45,6 @@ var education = {
 		}
 	]
 };
-
 var work = {
 	"jobs": [
 		{
@@ -58,11 +57,10 @@ var work = {
 			"employer": "Diviniti Auto Dealer",
 			"title": "Marketing Coordinator",
 			"dates": "December 2014 - July 2015",
-			"description": "Did marketing stuff"
+			"description": "Launched and maintained local and online marketing campaigns"
 		}
 	]
 };
-
 var projects = {
 	"projects": [
 		{
