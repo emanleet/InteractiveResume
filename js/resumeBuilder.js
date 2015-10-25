@@ -58,6 +58,24 @@ var work = {
 			"title": "Marketing Coordinator",
 			"dates": "December 2014 - July 2015",
 			"description": "Launched and maintained local and online marketing campaigns"
+		},
+				{
+			"employer": "24Hr HomeCare",
+			"title": "Human Resources Intern",
+			"dates": "September 2014 - November 2014",
+			"description": "Responsible for prescreening potential employees, explaining hiring packets, and handling confidential documents in accordance with HIPAA"
+		},
+		{
+			"employer": "Computer Intelligence Associates, Inc",
+			"title": "Marketing Coordinator",
+			"dates": "November 2012 - November 2013",
+			"description": "Performed in marketing and light web development projects"
+		},
+		{
+			"employer": "Mark Lulechian Team",
+			"title": "Real Estate Agent",
+			"dates": "September 2008 - January 2011",
+			"description": "Performed all activities in transaction cycle from lead generation to post-sale support for first time home buyers."
 		}
 	]
 };
