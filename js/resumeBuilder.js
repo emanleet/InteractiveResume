@@ -105,22 +105,24 @@ if (bio.skills.length > 0) {
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
 	$("#skills").append(formattedSkill);
 }
-for (job in work.jobs) {
-	//Create work-entry class div
-	$("#workExperience").append(HTMLworkStart);
-	//Replace generic data and store into new variable
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-	var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+function displayWork() {
+	for (job in work.jobs) {
+		//Create work-entry class div
+		$("#workExperience").append(HTMLworkStart);
+		//Replace generic data and store into new variable
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-	//Append work data to the last work-entry class div created
-	$(".work-entry:last").append(formattedEmployerTitle);
-	$(".work-entry:last").append(formattedWorkDate);
-	$(".work-entry:last").append(formattedWorkDescription);
+		//Append work data to the last work-entry class div created
+		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedWorkDate);
+		$(".work-entry:last").append(formattedWorkDescription);
+	}
 }
-
+displayWork();
 
 
 
