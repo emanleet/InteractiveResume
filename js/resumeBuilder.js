@@ -93,6 +93,12 @@ var projects = {
 	]
 };
 
+
+
+
+
+
+$("#main").append(internationalizeButton);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 if (bio.skills.length > 0) {
@@ -123,20 +129,6 @@ function displayWork() {
 	}
 }
 displayWork();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
