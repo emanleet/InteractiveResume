@@ -70,10 +70,11 @@ $(document).ready(function() {
 });
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+Capture Clicks
 */
 clickLocations = [];
 
+//Create an object w/ click data and push to clickLocations array
 function logClicks(x,y) {
   clickLocations.push(
     {
@@ -84,8 +85,11 @@ function logClicks(x,y) {
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
+//Capture and store user click data
 $(document).click(function(loc) {
-  // your code goes here!
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
 });
 
 
