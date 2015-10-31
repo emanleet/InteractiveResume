@@ -98,7 +98,7 @@ var projects = {
 			"dates": "2014",
 			"description": "I did such and such in this project",
 			"images": [
-				"http://i1183.photobucket.com/albums/x474/hazyb71/Screen%20Shot%202015-10-30%20at%207.41.39%20PM_zps9ndwu2rs.png",
+				"http://i1183.photobucket.com/albums/x474/hazyb71/Screen%20Shot%202015-10-30%20at%209.25.39%20PM_zpsdq3harbo.png",
 				"linkToImage2"
 			]
 		}
