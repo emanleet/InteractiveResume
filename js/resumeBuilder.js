@@ -23,20 +23,17 @@ var bio = {
 	},
 	"welcomeMessage" : "lore igipsum dolor sit a dumby welcome message is to be placed here",
 	"skills" : [
-		"Photoshop", "HTML", "CSS", "Javascript", "JQuery", "Microsoft Office Suite (Word, Excel, PowerPoint, Outlook)"
+		"Photoshop", "HTML", "CSS", "Javascript", "JQuery", "Microsoft Office"
 	],
 	"bioPic" : "images/fry.jpg"
 };
 //Add skills to resume
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
+	for (skill in bio.skills) {
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+		$("#skills").append(formattedSkill);
+	}
 }
 
 //Create work object
