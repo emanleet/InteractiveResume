@@ -1,11 +1,7 @@
-var name = "Emmanuoel Haroutunian";
-var role = "Developer";
-//Replace generic helper.js data with variables containing personal info
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-//Add name, role, and internationalize button to page
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+
+//TODO: Encapsulate objects into functions
+//Fix Google Maps functionality
+//Fixs how skills are listed horizontally (make vertical)
 $("#main").append(internationalizeButton);
 //Add map to page
 $("#mapDiv").append(googleMap);
@@ -19,22 +15,49 @@ var bio = {
 		"email" : "emmanuoel.h@gmail.com",
 		"github" : "emanleet",
 		"twitter" : "@emanleet",
-		"location" : "Los Angeles, CA"
+		"location" : "Los Angeles"
 	},
-	"welcomeMessage" : "lore igipsum dolor sit a dumby welcome message is to be placed here",
+	"welcomeMessage" : "Hello there!",
 	"skills" : [
 		"Photoshop", "HTML", "CSS", "Javascript", "JQuery", "Microsoft Office"
 	],
-	"bioPic" : "images/fry.jpg"
+	"bioPic" : "http://i1183.photobucket.com/albums/x474/hazyb71/Emmanuel_zps9icwm5j8.jpg"
 };
-//Add skills to resume
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-	for (skill in bio.skills) {
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-		$("#skills").append(formattedSkill);
+
+bio.display = function () {
+	var name = "Emmanuoel Haroutunian";
+	var role = "Developer";
+	//Replace generic helper.js data with variables containing personal info
+	var formattedName = HTMLheaderName.replace("%data%", name);
+	var formattedRole = HTMLheaderRole.replace("%data%", role);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	//Add name, role, and internationalize button to page
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	$("#header").append(formattedWelcomeMessage);
+	$("#header").append(formattedBioPic);
+
+	//Create contact info
+	var email = HTMLemail.replace("%data%", bio.contacts.email);
+	var github = HTMLgithub.replace("%data%", bio.contacts.github);
+	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var location = HTMLlocation.replace("%data%", bio.contacts.location);
+	//Add contact info to page
+	$("#topContacts").append(email);
+	$("#topContacts").append(github);
+	$("#topContacts").append(twitter);
+	$("#topContacts").append(location);
+	//Add skills to resume
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
+		}
 	}
-}
+};
+bio.display();
 
 //Create work object
 var work = {
