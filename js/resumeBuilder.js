@@ -19,7 +19,7 @@ var bio = {
 		"email" : "emmanuoel.h@gmail.com",
 		"github" : "emanleet",
 		"twitter" : "@emanleet",
-		"location" : "Los Angeles"
+		"location" : "Los Angeles, CA"
 	},
 	"welcomeMessage" : "lore igipsum dolor sit a dumby welcome message is to be placed here",
 	"skills" : [
@@ -39,36 +39,42 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 }
 
+//Create work object
 var work = {
 	"jobs": [
 		{
 			"employer": "World Telecom Group",
 			"title": "Financial Analyst",
 			"dates": "September 2015 - Present",
+			"location": "Malibu, CA",
 			"description": "Consolidated financial reports for over 120 telecommunications providers."
 		},
 		{
 			"employer": "Diviniti Auto Dealer",
 			"title": "Marketing Coordinator",
 			"dates": "December 2014 - July 2015",
+			"location": "Montrose, CA",
 			"description": "Launched and maintained local and online marketing campaigns"
 		},
 				{
 			"employer": "24Hr HomeCare",
 			"title": "Human Resources Intern",
 			"dates": "September 2014 - November 2014",
+			"location": "Encino, CA",
 			"description": "Responsible for prescreening potential employees, explaining hiring packets, and handling confidential documents in accordance with HIPAA"
 		},
 		{
 			"employer": "Computer Intelligence Associates, Inc",
 			"title": "Marketing Coordinator",
 			"dates": "November 2012 - November 2013",
+			"location": "Glendale, CA",
 			"description": "Performed in marketing and light web development projects"
 		},
 		{
 			"employer": "Mark Lulechian Team",
 			"title": "Real Estate Agent",
 			"dates": "September 2008 - January 2011",
+			"location": "Burbank, CA",
 			"description": "Performed all activities in transaction cycle from lead generation to post-sale support for first time home buyers."
 		}
 	]
@@ -83,11 +89,13 @@ function displayWork() {
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedEmployerTitle = formattedEmployer + formattedTitle;
 		var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
 		//Append work data to the last work-entry class div created
 		$(".work-entry:last").append(formattedEmployerTitle);
 		$(".work-entry:last").append(formattedWorkDate);
+		$(".work-entry:last").append(formattedWorkLocation);
 		$(".work-entry:last").append(formattedWorkDescription);
 	}
 }
