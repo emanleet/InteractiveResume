@@ -64,15 +64,15 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-      function inName() {
-        nameArray = bio.name.trim().split(" ");
-        console.log(name);
-        nameArray[0] = nameArray[0].slice(0,1).toUpperCase() +
-        nameArray[0].slice(1).toLowerCase();
-        nameArray[1] = nameArray[1].toUpperCase();
-        name = nameArray[0] + " " + nameArray[1];
-        return name;
-      }
+    function inName() {
+      nameArray = bio.name.trim().split(" ");
+      console.log(name);
+      nameArray[0] = nameArray[0].slice(0,1).toUpperCase() +
+      nameArray[0].slice(1).toLowerCase();
+      nameArray[1] = nameArray[1].toUpperCase();
+      name = nameArray[0] + " " + nameArray[1];
+      return name;
+    }
     $('#name').html(inName);
   });
 });
