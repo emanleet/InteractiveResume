@@ -168,7 +168,7 @@ var education = {
 	"schools": [
 		{
 			"name": "California State University, Northridge",
-			"city": "Northridge, CA",
+			"location": "Northridge, CA",
 			"degree": "Bachelor of Science",
 			"major": "Business Management",
 			"dates": "2011 - 2014",
@@ -176,7 +176,7 @@ var education = {
 		},
 		{
 			"name": "Glendale Community College",
-			"city": "Glendale, CA",
+			"location": "Glendale, CA",
 			"dates": 2011
 		}
 	],
