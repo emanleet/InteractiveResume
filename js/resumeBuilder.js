@@ -3,10 +3,13 @@ var role = "Developer";
 //Replace generic helper.js data with variables containing personal info
 var formattedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
-//Add internationalize button and name
-$("#main").append(internationalizeButton);
+//Add name, role, and internationalize button to page
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+$("#main").append(internationalizeButton);
+//Add map to page
+$("#mapDiv").append(googleMap);
+
 
 //Create biography object
 var bio = {
@@ -129,6 +132,7 @@ projects.display = (function() {
 });
 projects.display();
 
+//Create education object
 var education = {
 	"schools": [
 		{
