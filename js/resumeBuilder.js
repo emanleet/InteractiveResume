@@ -2,6 +2,9 @@
 //TODO: Encapsulate objects into functions
 //Fix Google Maps functionality
 //Fixs how skills are listed horizontally (make vertical)
+//Change displayWork function to simply 'display'
+//Add online courses
+//Remove null values from school object
 $("#main").append(internationalizeButton);
 //Add map to page
 $("#mapDiv").append(googleMap);
@@ -166,29 +169,45 @@ var education = {
 		{
 			"name": "California State University, Northridge",
 			"city": "Northridge, CA",
-			"degree": "B.S. Business Management",
+			"degree": "Bachelor of Science",
+			"major": "Business Management",
 			"dates": "2011 - 2014",
 			"url": "http://example.com"
 		},
 		{
 			"name": "Glendale Community College",
-			"city": "Glendale, CA"
+			"city": "Glendale, CA",
+			"dates": 2011
 		}
 	],
 	"onlineCourses": [
 		{
 			"title": "Front End Web Development",
 			"school": "Udacity",
+			"degree": "Nanodegree",
+			"major": "Front-End Web Development",
 			"dates": 2015
 		}
 	]
 };
+//Add education data to resume
+education.display = (function() {
+	$("#education").append(HTMLschoolStart);
+	for(school in education.schools) {
+		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var schoolCity = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 
-
-
-
-
-
+		$(".education-entry:last").append(schoolName);
+		$(".education-entry").append(schoolCity);
+		$(".education-entry:last").append(schoolDegree);
+		$(".education-entry").append(schoolMajor);
+		$("education-entry").append(schoolDates);
+	}
+});
+education.display();
 
 
 
