@@ -1,13 +1,14 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-
 var name = "Emmanuoel Haroutunian";
 var role = "Developer";
-//Replace generic helper.js data with variables containing
-//personalized info
+//Replace generic helper.js data with variables containing personal info
 var formattedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
+//Add internationalize button and name
+$("#main").append(internationalizeButton);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+//Create biography object
 var bio = {
 	"name" : "Emmanuoel Haroutunian",
 	"role" : "Financial Analyst",
@@ -23,28 +24,18 @@ var bio = {
 	],
 	"bioPic" : "images/fry.jpg"
 };
-var education = {
-	"schools": [
-		{
-			"name": "California State University, Northridge",
-			"city": "Northridge, CA",
-			"degree": "B.S. Business Management",
-			"dates": "2011 - 2014",
-			"url": "http://example.com"
-		},
-		{
-			"name": "Glendale Community College",
-			"city": "Glendale, CA"
-		}
-	],
-	"onlineCourses": [
-		{
-			"title": "Front End Web Development",
-			"school": "Udacity",
-			"dates": 2015
-		}
-	]
-};
+//Add skills to resume
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkill);
+}
+
 var work = {
 	"jobs": [
 		{
@@ -79,38 +70,7 @@ var work = {
 		}
 	]
 };
-var projects = {
-	"projects": [
-		{
-			"title": "Sample Project 1",
-			"dates": "2014",
-			"description": "I did such and such in this project",
-			"images": [
-				"linkToImage1",
-				"linkToImage2"
-			]
-		}
-	]
-};
-
-
-
-
-
-
-$("#main").append(internationalizeButton);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
-}
+//Add work data to resume
 function displayWork() {
 	for (job in work.jobs) {
 		//Create work-entry class div
@@ -129,6 +89,79 @@ function displayWork() {
 	}
 }
 displayWork();
+
+//Create project object
+var projects = {
+	"projects": [
+		{
+			"title": "Responsive Developer Page",
+			"dates": "2014",
+			"description": "I did such and such in this project",
+			"images": [
+				"http://i1183.photobucket.com/albums/x474/hazyb71/Screen%20Shot%202015-10-30%20at%207.41.39%20PM_zps9ndwu2rs.png",
+				"linkToImage2"
+			]
+		}
+	]
+};
+//Add project data to resume
+projects.display = (function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedProjectTitle);
+
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedProjectDates);
+
+		var formattedProjectDesc = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedProjectDesc);
+
+		if (projects.projects[0].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedProjectImage);
+			}
+		}
+
+	}
+});
+projects.display();
+
+var education = {
+	"schools": [
+		{
+			"name": "California State University, Northridge",
+			"city": "Northridge, CA",
+			"degree": "B.S. Business Management",
+			"dates": "2011 - 2014",
+			"url": "http://example.com"
+		},
+		{
+			"name": "Glendale Community College",
+			"city": "Glendale, CA"
+		}
+	],
+	"onlineCourses": [
+		{
+			"title": "Front End Web Development",
+			"school": "Udacity",
+			"dates": 2015
+		}
+	]
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 
