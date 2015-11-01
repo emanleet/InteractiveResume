@@ -15,6 +15,7 @@ var bio = {
 	"name" : "Emmanuoel Haroutunian",
 	"role" : "Financial Analyst",
 	"contacts" : {
+		"mobile": "xxx-xxx-xxxx",
 		"email" : "emmanuoel.h@gmail.com",
 		"github" : "emanleet",
 		"twitter" : "@emanleet",
@@ -42,11 +43,13 @@ bio.display = function () {
 	$("#header").append(formattedBioPic);
 
 	//Create contact info
+	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	var email = HTMLemail.replace("%data%", bio.contacts.email);
 	var github = HTMLgithub.replace("%data%", bio.contacts.github);
 	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 	var location = HTMLlocation.replace("%data%", bio.contacts.location);
 	//Add contact info to page
+	$("#topContacts").append(mobile);
 	$("#topContacts").append(email);
 	$("#topContacts").append(github);
 	$("#topContacts").append(twitter);
@@ -130,10 +133,21 @@ var projects = {
 		{
 			"title": "Responsive Developer Page",
 			"dates": "2014",
-			"description": "I did such and such in this project",
+			"description": "Developed a responsive website with a custom grid system and flexbox properties.",
 			"images": [
 				"http://i1183.photobucket.com/albums/x474/hazyb71/Screen%20Shot%202015-10-30%20at%209.25.39%20PM_zpsdq3harbo.png",
-				"linkToImage2"
+				//TODO: Make Responsive
+				"http://i1183.photobucket.com/albums/x474/hazyb71/Placeholder_zpsclmqxk6k.png"
+			]
+		},
+		{
+			"title": "Interactive Resume",
+			"dates": "2014",
+			"description": "Lorem ipsum dolor sit amet, tempor incididunt ut labore et dolore magna aliqua.",
+			"images": [
+				"http://i1183.photobucket.com/albums/x474/hazyb71/Interactive%20Resume%20Image_zpsmzwz9pvp.jpg",
+				//TODO: Make Responsive
+				"http://i1183.photobucket.com/albums/x474/hazyb71/Placeholder_zpsclmqxk6k.png"
 			]
 		}
 	]
@@ -142,17 +156,17 @@ var projects = {
 projects.display = (function() {
 	for (project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
-
+		//Replace generic data with personal data
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		$(".project-entry:last").append(formattedProjectTitle);
-
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last").append(formattedProjectDates);
-
 		var formattedProjectDesc = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+
+		//Append project data
+		$(".project-entry:last").append(formattedProjectTitle);
+		$(".project-entry:last").append(formattedProjectDates);
 		$(".project-entry:last").append(formattedProjectDesc);
 
-		if (projects.projects[0].images.length > 0) {
+		if (projects.projects[project].images.length > 0) {
 			for (image in projects.projects[project].images) {
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 				$(".project-entry:last").append(formattedProjectImage);
