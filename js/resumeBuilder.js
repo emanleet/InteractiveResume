@@ -186,12 +186,15 @@ var education = {
 			"degree": "Bachelor of Science",
 			"major": "Business Management",
 			"dates": "2011 - 2014",
-			"url": "http://example.com"
+			"url": "http://www.csun.edu"
 		},
 		{
 			"name": "Glendale Community College",
 			"location": "Glendale, CA",
-			"dates": 2011
+			"degree": "Lorem Ipsum",
+			"major": "Unde omnis",
+			"dates": 2011,
+			"url": "http://www.glendale.edu"
 		}
 	],
 	"onlineCourses": [
@@ -200,26 +203,33 @@ var education = {
 			"school": "Udacity",
 			"degree": "Nanodegree",
 			"major": "Front-End Web Development",
-			"dates": 2015
+			"dates": 2015,
+			"url": "http://www.glendale.edu"
 		}
 	]
 };
 //Add education data to resume
 education.display = (function() {
-	$("#education").append(HTMLschoolStart);
 	for(school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+
 		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var schoolCity = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+		var schoolCity = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		//ADD URL
 
+		//Add education data to page
 		$(".education-entry:last").append(schoolName);
-		$(".education-entry").append(schoolCity);
+		$(".education-entry:last").append(schoolCity);
 		$(".education-entry:last").append(schoolDegree);
-		$(".education-entry").append(schoolMajor);
-		$("education-entry").append(schoolDates);
+		$(".education-entry:last").append(schoolMajor);
+		$("education-entry:last").append(schoolDates);
+		//ADD URL
 	}
+
+
 });
 education.display();
 
