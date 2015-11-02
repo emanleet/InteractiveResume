@@ -5,6 +5,7 @@
 //Change displayWork function to simply 'display'
 //Add online courses
 //Remove null values from school object
+//TODO: Footer
 $("#main").append(internationalizeButton);
 //Add map to page
 $("#mapDiv").append(googleMap);
@@ -177,7 +178,6 @@ projects.display = (function() {
 });
 projects.display();
 
-//Create education object
 var education = {
 	"schools": [
 		{
@@ -201,8 +201,6 @@ var education = {
 		{
 			"title": "Front End Web Development",
 			"school": "Udacity",
-			"degree": "Nanodegree",
-			"major": "Front-End Web Development",
 			"dates": 2015,
 			"url": "http://www.glendale.edu"
 		}
@@ -218,15 +216,24 @@ education.display = (function() {
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-		//ADD URL
 
 		//Add education data to page
 		$(".education-entry:last").append(schoolName);
 		$(".education-entry:last").append(schoolCity);
 		$(".education-entry:last").append(schoolDegree);
 		$(".education-entry:last").append(schoolMajor);
-		$("education-entry:last").append(schoolDates);
-		//ADD URL
+		$(".education-entry:last").append(schoolDates);
+	}
+
+	$("#education").append(HTMLonlineClasses);
+	for (onlineCourse in education.onlineCourses) {
+		$("#education").append(HTMLonlineCourseStart);
+
+		var courseTitleSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
+
+		$(".online-course-entry:last").append(courseTitleSchool);
+		$(".online-course-entry:last").append(onlineDates);
 	}
 
 
