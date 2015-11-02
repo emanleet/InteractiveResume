@@ -154,15 +154,16 @@ ul {
   padding: 10px;
   width: 200px;
   display: none;
+  border-radius: 15%;
 }
 
 img {
   padding: 10px;
 }
 
-.responsive-image {
+.project-image {
   max-width: 35%;
-  height: auto;
+  border-radius: 25px
 }
 
 span {
