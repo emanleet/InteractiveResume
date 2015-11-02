@@ -54,6 +54,12 @@ bio.display = function () {
 	$("#topContacts").append(github);
 	$("#topContacts").append(twitter);
 	$("#topContacts").append(location);
+	//Add contact info to footer
+	$("#footerContacts").append(mobile);
+	$("#footerContacts").append(email);
+	$("#footerContacts").append(github);
+	$("#footerContacts").append(twitter);
+	$("#footerContacts").append(location);
 	//Add skills to resume
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);

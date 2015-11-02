@@ -108,6 +108,10 @@ a {
   background-color: #2379f5;
 }
 
+.dark-blue {
+  background-color: #1A5AB5;
+}
+
 .blue-text {
   color: #2379f5;
 }
@@ -117,7 +121,7 @@ a {
   color: #fff;
 }
 
-.role-text {
+.grey-text {
   color: #d4d4d4;
 }
 
@@ -128,7 +132,7 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #333333;
 }
 
 /* TODO: Replace with image later */
