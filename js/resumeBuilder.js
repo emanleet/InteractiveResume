@@ -23,7 +23,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Hello there!",
 	"skills" : [
-		"Photoshop", "HTML", "CSS", "Javascript", "JQuery", "Microsoft Office"
+		"Photoshop", "HTML", "CSS", "Javascript", "jQuery", "Microsoft Office"
 	],
 	"bioPic" : "http://i1183.photobucket.com/albums/x474/hazyb71/Emmanuel_zps9icwm5j8.jpg"
 };
