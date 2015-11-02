@@ -1,8 +1,7 @@
 
 //TODO: Encapsulate objects into functions
 //Fix Google Maps functionality
-//Fixs how skills are listed horizontally (make vertical)
-//Change displayWork function to simply 'display'
+//TODO:Change displayWork function to simply 'display'
 //Add online courses
 //Remove null values from school object
 //TODO: Footer
@@ -11,7 +10,7 @@ $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
 
 
-//Create biography object
+//Initialize biography object
 var bio = {
 	"name" : "Emmanuoel Haroutunian",
 	"role" : "Financial Analyst",
@@ -66,7 +65,7 @@ bio.display = function () {
 };
 bio.display();
 
-//Create work object
+//Initialize work object
 var work = {
 	"jobs": [
 		{
@@ -128,7 +127,7 @@ function displayWork() {
 }
 displayWork();
 
-//Create project object
+//Initialize project object
 var projects = {
 	"projects": [
 		{
@@ -137,7 +136,6 @@ var projects = {
 			"description": "Developed a responsive website with a custom grid system and flexbox properties.",
 			"images": [
 				"http://i1183.photobucket.com/albums/x474/hazyb71/Screen%20Shot%202015-10-30%20at%209.25.39%20PM_zpsdq3harbo.png",
-				//TODO: Make Responsive
 				"http://i1183.photobucket.com/albums/x474/hazyb71/Placeholder_zpsclmqxk6k.png"
 			]
 		},
@@ -147,7 +145,6 @@ var projects = {
 			"description": "Lorem ipsum dolor sit amet, tempor incididunt ut labore et dolore magna aliqua.",
 			"images": [
 				"http://i1183.photobucket.com/albums/x474/hazyb71/Interactive%20Resume%20Image_zpsmzwz9pvp.jpg",
-				//TODO: Make Responsive
 				"http://i1183.photobucket.com/albums/x474/hazyb71/Placeholder_zpsclmqxk6k.png"
 			]
 		}
@@ -178,6 +175,7 @@ projects.display = (function() {
 });
 projects.display();
 
+//Initialize education object
 var education = {
 	"schools": [
 		{
@@ -206,6 +204,7 @@ var education = {
 		}
 	]
 };
+
 //Add education data to resume
 education.display = (function() {
 	for(var school in education.schools) {
