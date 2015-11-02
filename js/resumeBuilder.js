@@ -5,9 +5,10 @@
 //Add online courses
 //Remove null values from school object
 //TODO: Footer
-$("#main").append(internationalizeButton);
+
 //Add map to page
 $("#mapDiv").append(googleMap);
+$("#footerContacts").append(internationalizeButton);
 
 
 //Initialize biography object
