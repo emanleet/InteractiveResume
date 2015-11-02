@@ -40,8 +40,8 @@ bio.display = function () {
 	//Add name, role, and internationalize button to page
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
-	$("#header").append(formattedWelcomeMessage);
 	$("#header").append(formattedBioPic);
+	$("#header").append(formattedWelcomeMessage);
 
 	//Create contact info
 	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
