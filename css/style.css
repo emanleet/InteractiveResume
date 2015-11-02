@@ -160,6 +160,11 @@ img {
   padding: 10px;
 }
 
+.responsive-image {
+  max-width: 35%;
+  height: auto;
+}
+
 span {
   padding: 5px;
 }
