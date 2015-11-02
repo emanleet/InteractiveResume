@@ -58,7 +58,7 @@ bio.display = function () {
 	//Add skills to resume
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
-		for (skill in bio.skills) {
+		for (var skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#skills").append(formattedSkill);
 		}
@@ -108,7 +108,7 @@ var work = {
 };
 //Add work data to resume
 function displayWork() {
-	for (job in work.jobs) {
+	for (var job in work.jobs) {
 		//Create work-entry class div
 		$("#workExperience").append(HTMLworkStart);
 		//Replace generic data and store into new variable
@@ -155,7 +155,7 @@ var projects = {
 };
 //Add project data to resume
 projects.display = (function() {
-	for (project in projects.projects) {
+	for (var project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 		//Replace generic data with personal data
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -168,7 +168,7 @@ projects.display = (function() {
 		$(".project-entry:last").append(formattedProjectDesc);
 
 		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
+			for (var image in projects.projects[project].images) {
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
 				$(".project-entry:last").append(formattedProjectImage);
 			}
@@ -208,31 +208,33 @@ var education = {
 };
 //Add education data to resume
 education.display = (function() {
-	for(school in education.schools) {
+	for(var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 
 		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var schoolCity = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var schoolHeader = schoolName + schoolDegree;
+		var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 
 		//Add education data to page
-		$(".education-entry:last").append(schoolName);
-		$(".education-entry:last").append(schoolCity);
-		$(".education-entry:last").append(schoolDegree);
-		$(".education-entry:last").append(schoolMajor);
+		$(".education-entry:last").append(schoolHeader);
+		$(".education-entry:last").append(schoolLocation);
 		$(".education-entry:last").append(schoolDates);
+		$(".education-entry:last").append(schoolMajor);
 	}
 
 	$("#education").append(HTMLonlineClasses);
-	for (onlineCourse in education.onlineCourses) {
+	for (var onlineCourse in education.onlineCourses) {
 		$("#education").append(HTMLonlineCourseStart);
 
-		var courseTitleSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+		var courseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+		var courseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+		var courseHeader = courseTitle + courseSchool;
 		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
 
-		$(".online-course-entry:last").append(courseTitleSchool);
+		$(".online-course-entry:last").append(courseHeader);
 		$(".online-course-entry:last").append(onlineDates);
 	}
 
