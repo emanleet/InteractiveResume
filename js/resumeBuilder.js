@@ -227,15 +227,15 @@ education.display = (function() {
 
 	$("#education").append(HTMLonlineClasses);
 	for (var onlineCourse in education.onlineCourses) {
-		$("#education").append(HTMLonlineCourseStart);
+		$("#education").append(HTMLschoolStart);
 
 		var courseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
 		var courseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
 		var courseHeader = courseTitle + courseSchool;
 		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
 
-		$(".online-course-entry:last").append(courseHeader);
-		$(".online-course-entry:last").append(onlineDates);
+		$(".education-entry:last").append(courseHeader);
+		$(".education-entry:last").append(onlineDates);
 	}
 
 
