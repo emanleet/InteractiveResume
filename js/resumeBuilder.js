@@ -143,8 +143,9 @@ bio.display = function () {
 	//Add skills to resume
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+		var arrayLength = bio.skills.length;
+		for (var i = 0; i < arrayLength; i++) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
 			$("#skills").append(formattedSkill);
 		}
 	}
@@ -191,7 +192,7 @@ projects.display = (function() {
 });
 
 education.display = (function() {
-	for(var school in education.schools) {
+	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
