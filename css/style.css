@@ -255,6 +255,11 @@ span {
     width: auto;
   }
 
+  .project-entry {
+    padding: 0 15px;
+    width: 41.66%;
+  }
+
   [class*="col-md-"] {
     padding: 0 15px;
   }
