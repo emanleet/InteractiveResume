@@ -1,9 +1,4 @@
-//Add map to page
-$("#mapDiv").append(googleMap);
-$("#footerContacts").append(internationalizeButton);
-
-
-//Initialize biography object
+//Initialize objects for bio, work, projects, and education
 var bio = {
 	"name" : "Emmanuoel Haroutunian",
 	"role" : "Financial Analyst",
@@ -21,50 +16,6 @@ var bio = {
 	"bioPic" : "http://i1183.photobucket.com/albums/x474/hazyb71/Emmanuel_zps9icwm5j8.jpg"
 };
 
-bio.display = function () {
-	var name = "Emmanuoel Haroutunian";
-	var role = "Developer";
-	//Replace generic helper.js data with variables containing personal info
-	var formattedName = HTMLheaderName.replace("%data%", name);
-	var formattedRole = HTMLheaderRole.replace("%data%", role);
-	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-	//Add name, role, and internationalize button to page
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
-	$("#header").append(formattedBioPic);
-	$("#header").append(formattedWelcomeMessage);
-
-	//Create contact info
-	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	var email = HTMLemail.replace("%data%", bio.contacts.email);
-	var github = HTMLgithub.replace("%data%", bio.contacts.github);
-	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	var location = HTMLlocation.replace("%data%", bio.contacts.location);
-	//Add contact info to page
-	$("#topContacts").append(mobile);
-	$("#topContacts").append(email);
-	$("#topContacts").append(github);
-	$("#topContacts").append(twitter);
-	$("#topContacts").append(location);
-	//Add contact info to footer
-	$("#footerContacts").append(mobile);
-	$("#footerContacts").append(email);
-	$("#footerContacts").append(github);
-	$("#footerContacts").append(twitter);
-	$("#footerContacts").append(location);
-	//Add skills to resume
-	if (bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#skills").append(formattedSkill);
-		}
-	}
-};
-bio.display();
-
-//Initialize work object
 var work = {
 	"jobs": [
 		{
@@ -104,29 +55,7 @@ var work = {
 		}
 	]
 };
-//Add work data to resume
-function displayWork() {
-	for (var job in work.jobs) {
-		//Create work-entry class div
-		$("#workExperience").append(HTMLworkStart);
-		//Replace generic data and store into new variable
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-		var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-		//Append work data to the last work-entry class div created
-		$(".work-entry:last").append(formattedEmployerTitle);
-		$(".work-entry:last").append(formattedWorkDate);
-		$(".work-entry:last").append(formattedWorkLocation);
-		$(".work-entry:last").append(formattedWorkDescription);
-	}
-}
-displayWork();
-
-//Initialize project object
 var projects = {
 	"projects": [
 		{
@@ -149,32 +78,7 @@ var projects = {
 		}
 	]
 };
-//Add project data to resume
-projects.display = (function() {
-	for (var project in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
-		//Replace generic data with personal data
-		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		var formattedProjectDesc = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 
-		//Append project data
-		$(".project-entry:last").append(formattedProjectTitle);
-		$(".project-entry:last").append(formattedProjectDates);
-		$(".project-entry:last").append(formattedProjectDesc);
-
-		if (projects.projects[project].images.length > 0) {
-			for (var image in projects.projects[project].images) {
-				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedProjectImage);
-			}
-		}
-
-	}
-});
-projects.display();
-
-//Initialize education object
 var education = {
 	"schools": [
 		{
@@ -204,41 +108,123 @@ var education = {
 	]
 };
 
-//Add education data to resume
+//Display functions for each section of resume
+bio.display = function () {
+	var name = "Emmanuoel Haroutunian";
+	var role = "Developer";
+	//Replace generic helper.js data with variables containing personal info
+	var formattedName = HTMLheaderName.replace("%data%", name);
+	var formattedRole = HTMLheaderRole.replace("%data%", role);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	//Add name, role, and internationalize button to page
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	$("#header").append(formattedBioPic);
+	$("#header").append(formattedWelcomeMessage);
+	//Create contact info
+	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var email = HTMLemail.replace("%data%", bio.contacts.email);
+	var github = HTMLgithub.replace("%data%", bio.contacts.github);
+	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var location = HTMLlocation.replace("%data%", bio.contacts.location);
+	//Add contact info to page
+	$("#topContacts").append(mobile);
+	$("#topContacts").append(email);
+	$("#topContacts").append(github);
+	$("#topContacts").append(twitter);
+	$("#topContacts").append(location);
+	//Add contact info to footer
+	$("#footerContacts").append(mobile);
+	$("#footerContacts").append(email);
+	$("#footerContacts").append(github);
+	$("#footerContacts").append(twitter);
+	$("#footerContacts").append(location);
+	//Add skills to resume
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (var skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
+		}
+	}
+};
+
+function displayWork() {
+	for (var job in work.jobs) {
+		//Create work-entry class div
+		$("#workExperience").append(HTMLworkStart);
+		//Replace generic data and store into new variable
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		//Append work data to the last work-entry class div created
+		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedWorkDate);
+		$(".work-entry:last").append(formattedWorkLocation);
+		$(".work-entry:last").append(formattedWorkDescription);
+	}
+}
+
+projects.display = (function() {
+	for (var project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		//Replace generic data with personal data
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedProjectDesc = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		//Append project data
+		$(".project-entry:last").append(formattedProjectTitle);
+		$(".project-entry:last").append(formattedProjectDates);
+		$(".project-entry:last").append(formattedProjectDesc);
+		if (projects.projects[project].images.length > 0) {
+			for (var image in projects.projects[project].images) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedProjectImage);
+			}
+		}
+
+	}
+});
+
 education.display = (function() {
 	for(var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
-
 		var schoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var schoolHeader = schoolName + schoolDegree;
 		var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
 		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-
 		//Add education data to page
 		$(".education-entry:last").append(schoolHeader);
 		$(".education-entry:last").append(schoolLocation);
 		$(".education-entry:last").append(schoolDates);
 		$(".education-entry:last").append(schoolMajor);
 	}
-
 	$("#education").append(HTMLonlineClasses);
 	for (var onlineCourse in education.onlineCourses) {
 		$("#education").append(HTMLschoolStart);
-
 		var courseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
 		var courseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
 		var courseHeader = courseTitle + courseSchool;
 		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
-
 		$(".education-entry:last").append(courseHeader);
 		$(".education-entry:last").append(onlineDates);
 	}
-
-
 });
+
+//Invoke display functions
+bio.display();
+displayWork();
+projects.display();
 education.display();
+//Add map and internationalize buttons to page
+$("#mapDiv").append(googleMap);
+$("#footerContacts").append(internationalizeButton);
 
 
 
