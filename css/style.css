@@ -155,7 +155,6 @@ a {
   background-color: #333333;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #333333;
 }
@@ -227,6 +226,11 @@ span {
   .welcome-message {
     display: none;
   }
+
+  .flex-work {
+    justify-content: center;
+  }
+
 }
 
 #map {
@@ -243,7 +247,11 @@ span {
 
 @media only screen and (min-width: 750px) {
 
-    .col-auto {
+  #projects {
+  justify-content: space-around;
+  }
+
+  .col-auto {
     width: auto;
   }
 

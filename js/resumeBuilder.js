@@ -1,11 +1,3 @@
-
-//TODO: Encapsulate objects into functions
-//Fix Google Maps functionality
-//TODO:Change displayWork function to simply 'display'
-//Add online courses
-//Remove null values from school object
-//TODO: Footer
-
 //Add map to page
 $("#mapDiv").append(googleMap);
 $("#footerContacts").append(internationalizeButton);
