@@ -192,16 +192,16 @@ education.display = (function() {
 			$('.education-entry:last').append(schoolHeader).append(schoolLocation).append(schoolDates).append(schoolMajor);
 		}
 	}
-		$('#education').append(HTMLonlineClasses);
-		for (var onlineCourse in education.onlineCourses) {
-			if (education.onlineCourses.hasOwnProperty(onlineCourse)) {
-				$('#education').append(HTMLschoolStart);
-				var courseTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
-				var courseSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[onlineCourse].school);
-				var courseHeader = courseTitle + courseSchool;
-				var onlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
-				$('.education-entry:last').append(courseHeader).append(onlineDates);
-			}
+	$('#education').append(HTMLonlineClasses);
+	for (var onlineCourse in education.onlineCourses) {
+		if (education.onlineCourses.hasOwnProperty(onlineCourse)) {
+			$('#education').append(HTMLschoolStart);
+			var courseTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
+			var courseSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[onlineCourse].school);
+			var courseHeader = courseTitle + courseSchool;
+			var onlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
+			$('.education-entry:last').append(courseHeader).append(onlineDates);
+		}
 	}
 });
 
