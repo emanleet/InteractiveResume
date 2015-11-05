@@ -118,10 +118,7 @@ bio.display = function () {
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
 	var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
 	//Add name, role, and internationalize button to page
-	$('#header').prepend(formattedRole);
-	$('#header').prepend(formattedName);
-	$('#header').append(formattedBioPic);
-	$('#header').append(formattedWelcomeMessage);
+	$('#header').prepend(formattedRole).prepend(formattedName).append(formattedBioPic).append(formattedWelcomeMessage);
 	//Create contact info
 	var mobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
 	var email = HTMLemail.replace('%data%', bio.contacts.email);
